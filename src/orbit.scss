@@ -9,14 +9,14 @@
   $moon-size: 8rem;
   $orbit-radius: 22rem;
 
+  position: relative;
+  display: grid;
+  place-items: center;
+
   .center-image {
     width: $center-image-size;
     height: $center-image-size;
     position: relative;
-
-    $img-off-x: #{-$center_image-size/2};
-    $img-off-y: #{($center-image-size)/2};
-    transform: translate($img-off-x, $img-off-y);
 
     img {
       position: absolute;
@@ -31,6 +31,12 @@
     }
   }
 
+  .list-wrapper {
+    position: absolute;
+    display: grid;
+    place-items: center;
+  }
+
   ul {
     position: relative;
     list-style: none;
@@ -42,7 +48,6 @@
 
     transform-origin: center;
     animation: a.ul-animation();
-
   }
 
   li > .moon {
