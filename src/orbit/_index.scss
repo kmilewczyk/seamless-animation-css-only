@@ -1,0 +1,14 @@
+@use '../custom_props';
+@use 'common';
+@use 'center-image' as *;
+@use 'orbit-list' as *;
+
+.orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+@include center-image();
+
+@include orbit-list();

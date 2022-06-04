@@ -1,0 +1,21 @@
+@use 'common';
+
+@mixin center-image() {
+  .center-image {
+    width: common.$center-image-size;
+    height: common.$center-image-size;
+    position: relative;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25%;
+      transition: opacity 500ms;
+
+      &:not(:first-child):hover {
+        opacity: 0
+      }
+    }
+  }
+}

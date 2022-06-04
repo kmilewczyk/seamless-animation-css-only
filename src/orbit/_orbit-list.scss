@@ -1,36 +1,30 @@
 @use 'sass:map';
-@use 'custom_props';
-@use 'animations/animation' as a;
+@use '../animations/animation' as a;
+@use 'common';
 
-@include a.hover-state-changes();
+$moon-icon-bg: (
+        0: var(--blue-light),
+        1: var(--green-light),
+        2: var(--pink-light),
+        3: var(--red-light),
+        4: var(--brown-light),
+        5: var(--yellow-light),
+        6: var(--purple-light),
+        7: var(--orange-light)
+);
 
-.orbit {
-  $center-image-size: 14rem;
-  $moon-size: 8rem;
-  $orbit-radius: 22rem;
+$moon-text-bg: (
+        0: var(--blue-dark),
+        1: var(--green-dark),
+        2: var(--pink-dark),
+        3: var(--red-dark),
+        4: var(--brown-dark),
+        5: var(--yellow-dark),
+        6: var(--purple-dark),
+        7: var(--orange-dark)
+);
 
-  position: relative;
-  display: grid;
-  place-items: center;
-
-  .center-image {
-    width: $center-image-size;
-    height: $center-image-size;
-    position: relative;
-
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 25%;
-      transition: opacity 500ms;
-
-      &:not(:first-child):hover {
-        opacity: 0
-      }
-    }
-  }
-
+@mixin orbit-list() {
   .list-wrapper {
     position: absolute;
     display: grid;
@@ -53,7 +47,7 @@
   li > .moon {
     position: absolute;
     background: var(--icon-bg);
-    width: $moon-size;
+    width: common.$moon-size;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
@@ -93,35 +87,13 @@
 
   li {
     opacity: 1;
-    width: $orbit-radius;
-    height: $moon-size;
+    width: common.$orbit-radius;
+    height: common.$moon-size;
     display: flex;
     justify-content: flex-end;
     position: absolute;
     pointer-events: none;
   }
-
-  $moon-icon-bg: (
-          0: var(--blue-light),
-          1: var(--green-light),
-          2: var(--pink-light),
-          3: var(--red-light),
-          4: var(--brown-light),
-          5: var(--yellow-light),
-          6: var(--purple-light),
-          7: var(--orange-light)
-  );
-
-  $moon-text-bg: (
-          0: var(--blue-dark),
-          1: var(--green-dark),
-          2: var(--pink-dark),
-          3: var(--red-dark),
-          4: var(--brown-dark),
-          5: var(--yellow-dark),
-          6: var(--purple-dark),
-          7: var(--orange-dark)
-  );
 
   @for $i from 0 to 8 {
     $rotate-offset: #{$i * 45deg};
@@ -133,7 +105,7 @@
       // Orbit axis is on the center of the left edge of the li
       // We set origin to left and center with translateY
       transform-origin: left;
-      transform: translateY(#{-$moon-size/2}) rotate(#{$rotate-offset});
+      transform: translateY(#{- common.$moon-size/2}) rotate(#{$rotate-offset});
 
       > .moon {
         transform: rotate(#{-$rotate-offset});
@@ -141,4 +113,5 @@
       }
     }
   }
+
 }

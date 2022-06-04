@@ -1,6 +1,7 @@
-
+@use 'animations/animation' as a;
 @use 'orbit';
 
+@include a.hover-state-changes();
 
 @mixin base() {
   font-family: system-ui;
