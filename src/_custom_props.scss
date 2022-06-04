@@ -1,0 +1,9 @@
+@use 'sass:color';
+@use 'colors';
+
+:root {
+  @each $name, $value in colors.$colors {
+    --#{$name}-light: #{$value};
+    --#{$name}-dark: #{color.adjust($value, $lightness: -45%)}
+  }
+}

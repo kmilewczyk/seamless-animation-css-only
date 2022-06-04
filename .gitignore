@@ -1,0 +1,5 @@
+.idea
+/dist/assets
+/dist/index.css
+/dist/index.css.map
+/node_modules

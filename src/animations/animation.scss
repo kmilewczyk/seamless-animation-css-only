@@ -1,0 +1,15 @@
+@use 'orbiting';
+
+// This file is a facade which aggregates all the animations
+
+@mixin hover-state-changes() {
+  @include orbiting.hover-state-change();
+}
+
+@function ul-animation() {
+  @return orbiting.ul-animation(());
+}
+
+@function moon-animation($i) {
+  @return orbiting.moon-animation((), $i);
+}

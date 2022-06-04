@@ -1,0 +1,15 @@
+
+@use 'orbit';
+
+
+@mixin base() {
+  font-family: system-ui;
+}
+
+body {
+  @include base();
+
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+}

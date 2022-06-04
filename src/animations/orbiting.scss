@@ -1,0 +1,60 @@
+@use 'sass:list';
+@use 'config';
+
+$start: config.$orbit-animation-start;
+$duration: config.$orbit-animation-duration;
+
+@function ul-animation($animation-list) {
+  $animation-list: list.append(
+    $animation-list,
+    orbit config.$orbit-speed linear $duration $start,
+    $separator: comma
+  );
+
+  @return $animation-list;
+}
+
+@function moon-animation($animation-list, $i) {
+  $throb-delay: #{$start + $i * 500ms};
+
+  $animation-list: list.append(
+    $animation-list,
+    orbit config.$orbit-speed linear reverse $duration $start var(--orbit-play-state, running),
+    $separator: comma
+  );
+
+  $animation-list: list.append(
+    $animation-list,
+    throb config.$throb-speed linear alternate $duration $throb-delay var(--throb-play-state, running),
+    $separator: comma
+  );
+
+  @return $animation-list;
+}
+
+@mixin hover-state-change() {
+  .orbit {
+    ul {
+      &:hover {
+        animation-play-state: paused;
+        --orbit-play-state: paused;
+
+        .moon:hover {
+          --throb-play-state: paused;
+        }
+      }
+    }
+  }
+}
+
+@keyframes orbit {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+@keyframes throb {
+  100% {
+    scale: 1.2;
+  }
+}
