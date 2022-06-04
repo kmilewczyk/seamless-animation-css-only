@@ -1,10 +1,13 @@
 @use 'common';
+@use '../animations/animation' as a;
 
 @mixin center-image() {
   .center-image {
     width: common.$center-image-size;
     height: common.$center-image-size;
     position: relative;
+
+    animation: a.c-image-animation();
 
     img {
       position: absolute;

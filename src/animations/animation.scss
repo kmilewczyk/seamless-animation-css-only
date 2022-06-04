@@ -1,9 +1,14 @@
 @use 'orbiting';
+@use 'silde-up';
 
 // This file is a facade which aggregates all the animations
 
 @mixin hover-state-changes() {
   @include orbiting.hover-state-change();
+}
+
+@function c-image-animation() {
+  @return silde-up.c-image-animation(());
 }
 
 @function ul-animation() {

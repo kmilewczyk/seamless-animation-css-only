@@ -1,7 +1,12 @@
 // === Animation timings ===
+$slide-up-animation-start: 0s;
+$slide-up-animation-duration: 1s;
+
 $orbit-animation-start: 0s;
 $orbit-animation-duration: infinite;
 
 // === Orbit animation ===
 $orbit-speed: 100s;
 $throb-speed: 2s;
+
+// === Slide-up animation
