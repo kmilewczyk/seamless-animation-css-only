@@ -2,11 +2,14 @@
 @use 'common';
 @use 'center-image' as *;
 @use 'orbit-list' as *;
+@use '../animations/animation' as a;
 
 .orbit {
   position: relative;
   display: grid;
   place-items: center;
+
+  animation: a.whole-orbit-animation();
 }
 
 @include center-image();

@@ -1,5 +1,8 @@
 @use 'orbiting';
 @use 'silde-up';
+@use 'fade-in';
+@use 'spread-moons';
+@use 'image-container-fade-in' as icontainer;
 
 // This file is a facade which aggregates all the animations
 
@@ -7,8 +10,16 @@
   @include orbiting.hover-state-change();
 }
 
+@function whole-orbit-animation() {
+  @return fade-in.whole-orbit-animation(());
+}
+
 @function c-image-animation() {
   @return silde-up.c-image-animation(());
+}
+
+@function image-container-animation() {
+  @return icontainer.image-container-animation(());
 }
 
 @function ul-animation() {
@@ -16,5 +27,6 @@
 }
 
 @function moon-animation($i) {
-  @return orbiting.moon-animation((), $i);
+  $list: orbiting.moon-animation((), $i);
+  @return spread-moons.moon-animation($list, $i);
 }

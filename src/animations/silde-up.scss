@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'config';
+@use 'key-frames';
 
 $start: config.$slide-up-animation-start;
 $duration: config.$slide-up-animation-duration;
@@ -7,17 +8,7 @@ $duration: config.$slide-up-animation-duration;
 @function c-image-animation($animation-list) {
   @return list.append(
     $animation-list,
-    slide-up $duration ease-out $start,
+    slide-up $duration ease-out $start backwards,
     $separator: comma
   );
-}
-
-@keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-  }
-
-  100% {
-    transform: translateY(0%);
-  }
 }

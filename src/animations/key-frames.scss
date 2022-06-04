@@ -1,0 +1,39 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes orbit {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+@keyframes throb {
+  100% {
+    scale: 1.2;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes spread {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) scale(0.3);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateX(-160%) scale(0.3);
+  }
+}

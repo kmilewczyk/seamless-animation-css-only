@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'config';
+@use 'key-frames';
 
 $start: config.$orbit-animation-start;
 $duration: config.$orbit-animation-duration;
@@ -44,17 +45,5 @@ $duration: config.$orbit-animation-duration;
         }
       }
     }
-  }
-}
-
-@keyframes orbit {
-  100% {
-    rotate: 1turn;
-  }
-}
-
-@keyframes throb {
-  100% {
-    scale: 1.2;
   }
 }

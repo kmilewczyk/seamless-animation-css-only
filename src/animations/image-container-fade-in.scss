@@ -1,0 +1,14 @@
+@use 'sass:list';
+@use 'config';
+@use 'key-frames';
+
+$start: config.$i-container-fade-animation-start;
+$duration: config.$i-container-fade-animation-duration;
+
+@function image-container-animation($animation-list) {
+  @return list.append(
+      $animation-list,
+      fade-in $duration ease-in $start backwards,
+      $separator: comma
+  );
+}

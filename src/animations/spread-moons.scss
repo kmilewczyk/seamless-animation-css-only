@@ -1,0 +1,17 @@
+@use 'sass:list';
+@use 'config';
+@use 'key-frames';
+
+$start: config.$spread-moons-animation-start;
+$duration: config.$spread-moons-animation-duration;
+
+@function moon-animation($animation-list, $i) {
+  $rotate-offset: #{(8-$i) * 45deg};
+  $moon-delay: #{(8-$i) * $duration / 8 + $start};
+
+  @return list.append(
+    $animation-list,
+    spread $duration ease-out $moon-delay backwards,
+    $separator: comma
+  );
+}
