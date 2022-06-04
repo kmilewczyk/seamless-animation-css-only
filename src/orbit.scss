@@ -11,15 +11,18 @@
 
   .center-image {
     width: $center-image-size;
+    height: $center-image-size;
     position: relative;
+
     $img-off-x: #{-$center_image-size/2};
-    $img-off-y: #{-($center-image-size)/2};
+    $img-off-y: #{($center-image-size)/2};
     transform: translate($img-off-x, $img-off-y);
 
     img {
       position: absolute;
       width: 100%;
-
+      height: 100%;
+      border-radius: 25%;
       transition: opacity 500ms;
 
       &:not(:first-child):hover {
